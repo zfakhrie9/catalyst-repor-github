@@ -1,0 +1,629 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    border: none;
+    outline: none;
+    scroll-behavior: smooth;
+    font-family: 'Nunito', sans-serif;
+}
+
+:root {
+    --bg-color: #202d1f; /* Darker, more modern base */
+    --snd-bg-color: #2c442d; /* Slightly lighter secondary */
+    --text-color: #f0f0f0; /* Off-white for better readability */
+    --main-color: #0fe600; /* Vibrant cyan/teal */
+    --hover-glow-color: rgba(0, 230, 0, 0.4);
+    --shadow-color: rgba(0, 0, 0, 0.15);
+    --card-bg-color: #294026; /* Consistent with rdt.css if these are related projects */
+}
+
+html {
+    font-size: 62.5%;
+    overflow-x: hidden;
+    scroll-padding-top: 7rem; /* For fixed header */
+}
+
+body {
+    background: var(--bg-color);
+    color: var(--text-color);
+    line-height: 1.7; /* Improved readability */
+}
+
+section {
+    min-height: 100vh;
+    padding: 10rem 9% 4rem; /* Adjusted padding */
+}
+
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 2rem 9%;
+    background: rgba(31, 36, 45, 0.85); /* Semi-transparent with blur */
+    backdrop-filter: blur(10px);
+    display: flex;
+    justify-content: space-between;
+    align-items: center; /* Corrected from align-self */
+    z-index: 100;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.header.sticky {
+    background: var(--snd-bg-color);
+    box-shadow: 0 .2rem .5rem var(--shadow-color);
+}
+
+.logo {
+    font-size: 2.8rem; /* Slightly larger */
+    color: var(--text-color);
+    font-weight: 700;
+    cursor: default;
+    text-shadow: 0 0 5px var(--main-color);
+}
+
+.navbar a {
+    font-size: 1.7rem;
+    color: var(--text-color);
+    margin-left: 3.5rem;
+    font-weight: 500;
+    transition: color 0.3s ease, transform 0.3s ease;
+    position: relative;
+}
+
+.navbar a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: -6px; /* Adjust position */
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: var(--main-color);
+    transition: width 0.3s ease;
+}
+
+.navbar a:hover::after,
+.navbar a.active::after {
+    width: 100%;
+}
+
+.navbar a:hover,
+.navbar a.active {
+    color: var(--main-color);
+    transform: translateY(-2px);
+}
+
+#menu-icon {
+    font-size: 3.6rem;
+    color: var(--text-color);
+    display: none;
+    cursor: pointer;
+}
+
+.home {
+    display: flex;
+    justify-content: space-between; /* Better alignment for content and image */
+    align-items: center;
+    gap: 2rem;
+}
+
+.home-content {
+    max-width: 60rem; /* Limit width for better text flow */
+}
+
+.home-content h1 {
+    text-shadow: 0 0 10px var(--main-color), 0 0 20px var(--main-color); /* Enhanced glow */
+    font-size: 6rem; /* Larger heading */
+}
+
+.home-content h3 {
+    font-size: 2.8rem;
+    font-weight: 700;
+}
+
+.home-content h3:nth-of-type(2) {
+    margin-bottom: 2rem;
+}
+
+span {
+    color: var(--main-color);
+}
+
+.home-content h1{
+    font-size: 5.6rem;
+    font-weight: 700;
+    line-height: 1.3;
+}
+
+.home-img img{
+    width: 30vw; /* Adjust as needed */
+    min-width: 280px; /* Minimum size for smaller screens */
+    border-radius: 50%; /* Circular image */
+    /* box-shadow: 0 0 25px var(--main-color), 0 0 50px var(--main-color); */ /* Removed box-shadow */
+    animation: floatImage 4s ease-in-out infinite, fadeInZoom 1.2s ease-out forwards;
+}
+
+/* Add fadeInZoom if not already present from rdt.css */
+@keyframes fadeInZoom {
+    from {
+        opacity: 0;
+        transform: scale(0.8);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.home-content p {
+    font-size: 1.6rem;
+}
+
+.social-media a{
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 4.2rem;
+    height: 4.2rem;
+    background: transparent;
+    border: .2rem solid var(--main-color);
+    border-radius: 50%;
+    font-size: 2rem;
+    color: var(--main-color);
+    margin: 3rem 1.5rem 3rem 0;
+    transition: all 0.4s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.social-media a::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 100%;
+    background: var(--main-color);
+    transition: width 0.4s ease;
+    z-index: -1;
+}
+
+.social-media a:hover::before {
+    width: 100%;
+}
+
+.social-media a:hover {
+    color: var(--bg-color);
+    box-shadow: 0 0 1.2rem var(--main-color);
+    transform: scale(1.1) translateY(-4px);
+}
+
+.btn {
+    display: inline-block;
+    padding: 1.2rem 3rem;
+    background: var(--main-color);
+    border-radius: .8rem;
+    box-shadow: 0 0 1rem var(--main-color);
+    font-size: 1.7rem;
+    color: var(--bg-color);
+    letter-spacing: .1rem;
+    font-weight: 600;
+    transition: all 0.4s ease;
+    border: 2px solid var(--main-color);
+}
+
+.btn:hover {
+    background: transparent;
+    color: var(--main-color);
+    box-shadow: 0 0 1.5rem var(--main-color), 0 0 2.5rem var(--hover-glow-color);
+    transform: translateY(-3px);
+}
+
+.about {
+    display: flex;
+    justify-content: space-between; /* Better alignment */
+    align-items: center;
+    gap: 4rem; /* Increased gap */
+    background: var(--snd-bg-color); /* Corrected variable, was --snd-bf-color */
+}
+
+.about-img img{
+    width: 30vw; /* Adjust as needed */
+    min-width: 280px;
+    border-radius: 15px; /* Softer corners */
+    box-shadow: 0 8px 25px var(--shadow-color);
+    animation: floatImage 4s ease-in-out infinite; /* Keep floating if desired */
+}
+
+.heading { /* Ensure .heding was a typo and is .heading */
+    text-align: center;
+    font-size: 4.5rem;
+    margin-bottom: 3rem; /* Add margin to heading */
+}
+
+.heading span {
+    color: var(--main-color);
+}
+
+.about-content h2{
+    text-align: left;
+    line-height: 1.3;
+    font-size: 4rem;
+    margin-bottom: 1rem;
+}
+
+.about-content h3{
+    font-size: 2.8rem; /* Adjusted size */
+    margin-bottom: 1.5rem;
+    color: var(--text-color);
+}
+
+.about-content p{
+    font-size: 1.6rem;
+    margin: 2rem 0 3rem;
+    line-height: 1.8;
+}
+
+.services h2{
+    margin-bottom: 5rem; /* Increased margin */
+    font-size: 4rem;
+}
+
+.services-container {
+    display: flex;
+    justify-content: center;
+    align-items: stretch; /* Align items to stretch for equal height */
+    flex-wrap: wrap;
+    gap: 3rem;
+}
+
+.services-container .services-box {
+    flex: 1 1 30rem;
+    background: var(--card-bg-color); /* Use card background color */
+    padding: 3.5rem 2.5rem 4.5rem;
+    border-radius: 1.5rem;
+    text-align: center;
+    border: 1px solid transparent; /* Subtle border */
+    box-shadow: 0 5px 20px var(--shadow-color);
+    transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.services-container .services-box:hover {
+    border-color: var(--main-color);
+    transform: translateY(-10px) scale(1.03);
+    box-shadow: 0 10px 25px var(--shadow-color), 0 0 15px var(--hover-glow-color);
+}
+
+.services-box i {
+    font-size: 6rem; /* Slightly smaller */
+    color: var(--main-color);
+    margin-bottom: 1.5rem; /* Add margin below icon */
+}
+
+.services-box h3 {
+    font-size: 2.4rem;
+    margin-bottom: 1rem;
+}
+
+.services-box p {
+    font-size: 1.5rem; /* Corrected from 1.5 */
+    margin: 1rem 0 0; /* Adjusted margin */
+    line-height: 1.7;
+}
+
+.portfolio {
+    background: var(--snd-bg-color); /* Corrected variable */
+}
+
+.portfolio h2 {
+    margin-bottom: 5rem;
+    font-size: 4rem;
+}
+
+.portfolio-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Responsive grid */
+    gap: 2.5rem;
+}
+
+.portfolio-container .portfolio-box {
+    position: relative;
+    border-radius: 1.5rem;
+    box-shadow: 0 5px 15px var(--shadow-color);
+    overflow: hidden;
+    display: flex; /* Keep this if content inside needs flex */
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.portfolio-box:hover {
+    transform: translateY(-10px) scale(1.02);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.2), 0 0 20px var(--main-color);
+}
+
+.portfolio-box img {
+    width: 100%;
+    height: 250px; /* Fixed height for consistency */
+    object-fit: cover; /* Ensure image covers */
+    transition: transform 0.5s ease, opacity 0.5s ease;
+    opacity: 0.85;
+}
+
+.portfolio-box:hover img {
+    transform: scale(1.1);
+    opacity: 1;
+}
+
+.portfolio-box .portfolio-layer {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to top, rgba(0,0,0,0.95) 25%, rgba(0,0,0,0.05));
+    color: var(--text-color);
+    display: flex;
+    justify-content: flex-end; /* Align to bottom */
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+    padding: 2rem;
+    opacity: 0;
+    transform: translateY(15px);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.portfolio-box:hover .portfolio-layer {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.portfolio-layer h4 {
+    font-size: 2.4rem; /* Adjusted size */
+    margin-bottom: 0.5rem;
+}
+
+.portfolio-layer p {
+    font-size: 1.5rem;
+    margin: .3rem 0 1.5rem;
+}
+
+.portfolio-layer a.project-link-icon { /* New class for the icon link */
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 4.5rem;
+    height: 4.5rem;
+    background: var(--main-color);
+    border-radius: 50%;
+    transition: all 0.3s ease;
+}
+
+.portfolio-layer a.project-link-icon:hover {
+    background: var(--text-color);
+    transform: scale(1.1);
+}
+
+.portfolio-layer a.project-link-icon i {
+    font-size: 2rem;
+    color: var(--bg-color); /* Icon color on main-color background */
+}
+
+/* Remove .contact section styles if it's not in coba.html */
+
+.footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    padding: 3rem 9%;
+    background: var(--snd-bg-color); /* Consistent with other secondary backgrounds */
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.footer-text p {
+    font-size: 1.5rem; /* Adjusted size */
+}
+
+.footer-iconTop a {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem;
+    background: var(--main-color);
+    border-radius: .8rem;
+    transition: all 0.4s ease;
+    box-shadow: 0 0 10px var(--main-color);
+}
+
+.footer-iconTop a:hover {
+    box-shadow: 0 0 15px var(--main-color), 0 0 25px var(--hover-glow-color);
+    transform: translateY(-5px);
+}
+
+.footer-iconTop a i {
+    font-size: 2.4rem;
+    color: var(--bg-color);
+}
+
+@media (max-width: 1200px) {
+    html {
+        font-size: 55%;
+    }
+}
+
+@media (max-width: 991px){
+    .header {
+        padding: 2rem 3%;
+    }
+
+    section {
+        padding: 10rem 3%;
+    }
+
+    .services {
+        padding: 7rem;
+    }
+
+    .portfolio {
+        padding-bottom: 7rem;
+    }
+
+    .contact {
+        min-height: auto;
+    }
+
+    .footer {
+        padding: 2rem 3%;
+    }
+}
+
+@media (max-width: 768px){
+    #menu-icon {
+        display: block;
+    }
+
+    .navbar {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        padding: 1rem 3%;
+        background: var(--bg-color);
+        border-top: .1rem solid rgba(0, 0, 0, .2);
+        box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .2);
+        display: none;
+    }
+
+    .navbar.active {
+        display: block;
+    }
+
+    .navbar a {
+        display: block;
+        font-size: 2rem;
+        margin: 3rem 0;
+    }
+
+    .home {
+        flex-direction: column;
+    }
+
+    .home-content h3 {
+        font-size: 2.6rem;
+    }
+
+    .about-content h1 {
+        font-size: 5rem;
+    }
+
+    .home-content {
+        order: 2;
+    }
+
+    .home-img img {
+        width: 70vw;
+        margin-top: 4rem;
+    }
+
+    .services h2 {
+        margin-bottom: 3rem;
+    }
+
+    .portfolio h2 {
+        margin-bottom: 3rem;
+    }
+
+    .portfolio-container {
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    }
+}
+
+@media (max-width: 617px){
+    .portfolio-container {
+        grid-template-columns: 1fr;
+    }
+    
+    .home-img img {
+        width: 80vw;
+        margin-top: 8rem;
+    }
+
+    .about-img img {
+        width: 100%;
+        margin-top: 4rem;
+    }
+}
+
+@media (max-width:450px){
+    html {
+        font-size: 50%;
+    }
+
+    .contact form .input-box input {
+        width: 100%;
+    }
+}
+
+/* Minor adjustments in media queries if needed based on new styles */
+@media (max-width: 991px){
+    .home-img img {
+        width: 35vw;
+    }
+    .about-img img {
+        width: 40vw;
+    }
+}
+
+@media (max-width: 768px){
+    .home {
+        padding-top: 12rem; /* Adjust for mobile nav */
+    }
+    .home-img img {
+        width: 65vw; /* Adjust for stacked layout */
+        margin-top: 3rem;
+    }
+
+    .about {
+        flex-direction: column;
+    }
+
+    .about-img img {
+        width: 65vw;
+        margin-top: 0; /* Reset margin if stacked */
+        margin-bottom: 3rem;
+    }
+    .portfolio-container {
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    }
+}
+
+@media (max-width: 617px){
+    .portfolio-container {
+        grid-template-columns: 1fr;
+    }
+    
+    .home-img img {
+        width: 80vw;
+        margin-top: 8rem;
+    }
+
+    .about-img img {
+        width: 100%;
+        margin-top: 4rem;
+    }
+}
+
+@media (max-width:450px){
+    html {
+        font-size: 50%;
+    }
+
+    .contact form .input-box input {
+        width: 100%;
+    }
+}

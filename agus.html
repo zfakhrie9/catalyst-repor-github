@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="rdt.css">
+    <!-- Font Awesome for icons - Ensure you have this or a similar library -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <title>Project: RC Ship Grapper - Agustian</title> <!-- More specific title -->
+</head>
+<body>
+    <header class="header">
+        <a href="rdt.html" class="logo project-page-logo"><i class="fa-solid fa-arrow-left"></i> Agustian Project</a> <!-- Added back icon and class -->
+        
+        <nav class="navbar">
+            <a href="rdt.html" class="active"><i class="fa-solid fa-arrow-left"></i> Back to Portfolio</a>
+            <!-- You can add more navigation specific to this page if needed -->
+        </nav>
+    </header>
+
+    <section class="about project-detail-section" id="ProjectDetail">
+        <div class="about-img project-image-container">
+            <img src="Project Photo/agustian pj.png" alt="RC Ship Grapper Project Image">
+       
+        </div>
+        <div class="about-content project-description">
+            <h2 class="heading">RC Ship Grapper</h2> <!-- Added span for subtitle/translation -->
+            <h3>By : Ahmad Nugraha Agustian R. </h3>
+            <div class="project-meta">
+                <span class="meta-tag"><i class="fa-solid fa-tag"></i> Electronics</span>
+                <span class="meta-tag"><i class="fa-solid fa-calendar-days"></i> Year: 2026</span> 
+                <!-- Add more meta tags like category, tools used, etc. -->
+            </div>
+            <p><span>Deskripsi Singkat:</span> RC Ship Grapper adalah sistem pengangkat kapal layar yang dirancang untuk mempermudah proses pengangkatan dan penurunan barang atau perlatan  tertentu. Sistem ini menggunakan teknologi kontrol jarak jauh dan mekanisme otomatis untuk meningkatkan efisiensi dan keamanan dalam Pengendalian.</p>
+
+            <!-- Optional: Add a call to action or link to live demo/code -->
+            <!-- <div class="project-links">
+                 <a href="#" class="btn">View Demo <i class="fa-solid fa-eye"></i></a>
+                 <a href="#" class="btn btn-secondary">Source Code <i class="fa-brands fa-github"></i></a>
+            </div> -->
+        </div>
+    </section>
+
+    <!-- You can add more sections here, e.g., Features, Technologies Used, Gallery -->
+    <section class="features project-features" id="Features">
+        <h2 class="heading">Project <span>Features</span></h2>
+        <ul class="features-list project-specific-features">
+            <li><i class="fa-solid fa-check-circle"></i> Kontrol Jarak Jauh</li>
+            <li><i class="fa-solid fa-check-circle"></i> Mekanisme Pengangkat Otomatis</li>
+            <li><i class="fa-solid fa-check-circle"></i> Meningkatkan Keamanan Pengendalian</li>
+            <li><i class="fa-solid fa-check-circle"></i> Desain Praktis dan Fungsional</li>
+        </ul>
+    </section>
+
+    <footer class="footer">
+        <div class="footer-text">
+            <p>&copy; 2025 SIBoS | SIBS Class of 2026.</p>
+        </div>
+        <div class="footer-iconTop">
+            <a href="#ProjectDetail"><i class="fa-solid fa-arrow-up"></i></a>
+        </div>
+    </footer>
+
+    <script src="https://unpkg.com/scrollreveal"></script>
+    <!-- Typed.js might not be needed on this page unless you have text to animate -->
+    <!-- <script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script> -->
+    <script src="js.js"></script>
+    <script>
+        // Specific ScrollReveal animations for this page
+        ScrollReveal().reveal('.project-image-container', { origin: 'left', delay: 200, distance: '100px' });
+        ScrollReveal().reveal('.project-description h2', { origin: 'right', delay: 300, distance: '50px' });
+        ScrollReveal().reveal('.project-description h3', { origin: 'right', delay: 400, distance: '50px' });
+        ScrollReveal().reveal('.project-meta .meta-tag', { origin: 'bottom', delay: 500, interval: 150, distance: '30px' });
+        ScrollReveal().reveal('.project-description p', { origin: 'bottom', delay: 600, distance: '30px' });
+        ScrollReveal().reveal('.project-links .btn', { origin: 'bottom', delay: 700, interval: 200, distance: '30px' });
+        ScrollReveal().reveal('.project-features .heading', { origin: 'top', delay: 200 });
+        ScrollReveal().reveal('.project-specific-features li', { origin: 'left', interval: 100, delay: 300, distance: '40px' });
+    </script>
+</body>
+</html>

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="rdt.css">
+    <!-- Font Awesome for icons - Ensure you have this or a similar library -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <title>Project: Miniatur PLTA - Bahatta</title> <!-- More specific title -->
+</head>
+<body>
+    <header class="header">
+        <a href="rdt.html" class="logo project-page-logo"><i class="fa-solid fa-arrow-left"></i> Bahatta Project</a> <!-- Added back icon and class -->
+        
+        <nav class="navbar">
+            <a href="rdt.html" class="active"><i class="fa-solid fa-arrow-left"></i> Back to Portfolio</a>
+            <!-- You can add more navigation specific to this page if needed -->
+        </nav>
+    </header>
+
+   <section class="about project-detail-section" id="ProjectDetail">
+        <div class="about-img project-image-container">
+            <img src="Project Photo/bahatta pj.png" alt="Mobil RC pemotong rumput Project Image">
+       
+        </div>
+        <div class="about-content project-description">
+            <h2 class="heading">MINIATUR PLTA <span>(MINIATUR PLTA)</span></h2> <!-- Added span for subtitle/translation -->
+            <h3>By : Husain Fahri Bahatta</h3>
+            <div class="project-meta">
+                <span class="meta-tag"><i class="fa-solid fa-tag"></i> Electronics</span>
+                <span class="meta-tag"><i class="fa-solid fa-calendar-days"></i> Year: 2026</span> 
+                <!-- Add more meta tags like category, tools used, etc. -->
+            </div>
+            <p><span>Deskripsi Singkat:</span> Proyek ini adalah sistem pembangkit listrik ramah lingkungan berbasis energi terbarukan yang memanfaatkan aliran air sebagai sumber energi utama. Menggunakan komponen seperti intake, kincir air, dan mini dinamo, alat ini mampu mengubah energi potensial air menjadi energi listrik siap distribusi. Miniatur PLTA ini dirancang sebagai solusi energi alternatif yang efisien dan berbiaya operasional rendah, khususnya untuk wilayah terpencil yang belum terjangkau jaringan listrik utama.
+            </p>
+            
+            <!-- Optional: Add a call to action or link to live demo/code -->
+            <!-- <div class="project-links">
+                 <a href="#" class="btn">View Demo <i class="fa-solid fa-eye"></i></a>
+                 <a href="#" class="btn btn-secondary">Source Code <i class="fa-brands fa-github"></i></a>
+            </div> -->
+        </div>
+    </section>
+
+    <!-- You can add more sections here, e.g., Features, Technologies Used, Gallery -->
+    <section class="features project-features" id="Features">
+        <h2 class="heading">Project <span>Features</span></h2>
+        <ul class="features-list project-specific-features">
+            <li><i class="fa-solid fa-check-circle"></i> Kemajuan Teknologi Mendorong Otomasi</li>
+            <li><i class="fa-solid fa-check-circle"></i> Penerapan Otomasi di Lingkungan Rumah</li>
+            <li><i class="fa-solid fa-check-circle"></i> Deteksi Hujan sebagai Bagian dari Smart House</li>
+            <li><i class="fa-solid fa-check-circle"></i> Meningkatkan Efisiensi dan Perlindungan</li>
+        </ul>
+    </section>
+
+    <footer class="footer">
+        <div class="footer-text">
+            <p>&copy; 2025 SiBoS | SIBS Class of 2026.</p>
+        </div>
+        <div class="footer-iconTop">
+            <a href="#ProjectDetail"><i class="fa-solid fa-arrow-up"></i></a>
+        </div>
+    </footer>
+
+    <script src="https://unpkg.com/scrollreveal"></script>
+    <!-- Typed.js might not be needed on this page unless you have text to animate -->
+    <!-- <script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script> -->
+    <script src="js.js"></script>
+    <script>
+        // Specific ScrollReveal animations for this page
+        ScrollReveal().reveal('.project-image-container', { origin: 'left', delay: 200, distance: '100px' });
+        ScrollReveal().reveal('.project-description h2', { origin: 'right', delay: 300, distance: '50px' });
+        ScrollReveal().reveal('.project-description h3', { origin: 'right', delay: 400, distance: '50px' });
+        ScrollReveal().reveal('.project-meta .meta-tag', { origin: 'bottom', delay: 500, interval: 150, distance: '30px' });
+        ScrollReveal().reveal('.project-description p', { origin: 'bottom', delay: 600, distance: '30px' });
+        ScrollReveal().reveal('.project-links .btn', { origin: 'bottom', delay: 700, interval: 200, distance: '30px' });
+        ScrollReveal().reveal('.project-features .heading', { origin: 'top', delay: 200 });
+        ScrollReveal().reveal('.project-specific-features li', { origin: 'left', interval: 100, delay: 300, distance: '40px' });
+    </script>
+</body>
+</html>

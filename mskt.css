@@ -1,0 +1,918 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@1,300&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    border: none;
+    outline: none;
+    scroll-behavior: smooth;
+    font-family: "Nunito", sans-serif;
+}
+
+:root {
+    --bg-color: #1f2d20; /* Slightly darker and more modern blue-ish gray */
+    --snd-bg-color: #364632; /* A complementary darker shade */
+    --text-color: #f8f9fa; /* Off-white for better readability */
+    --main-color: rgb(0, 255, 21); /* A vibrant cyan, can be #59b2f4 if you prefer */
+    --gen-color: #ffd700; /* Gold for a nice accent, was #f3da92 */
+    --hover-glow-color: rgba(26, 255, 0, 0.5); /* For glowing effects */
+    --shadow-color: rgba(0, 0, 0, 0.2);
+}
+
+html{
+    font-size: 62.5%;
+    overflow-x: hidden;
+    scroll-padding-top: 7rem; /* Add scroll padding for fixed header */
+}
+
+body {
+    background: var(--bg-color);
+    color: var(--text-color);
+    line-height: 1.6; /* Improved default line height for readability */
+}
+
+section {
+    min-height: 100vh;
+    padding: 10rem 9% 2rem; /* Adjusted padding for more space at the top */
+}
+
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 2rem 9%;
+    background: rgba(31, 36, 45, 0.8); /* Semi-transparent background for a modern feel */
+    backdrop-filter: blur(10px); /* Frosted glass effect */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 100;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1); /* Subtle border */
+}
+
+.header.sticky {
+    background: var(--snd-bg-color); /* Solid background when sticky */
+    box-shadow: 0 .2rem .5rem var(--shadow-color); 
+}
+
+.logo {
+    font-size: 2.5rem; /* Adjusted logo size */
+    color: var(--text-color);
+    font-weight: 700;
+    cursor: default;
+    text-shadow: 0 0 5px var(--main-color); /* Subtle glow */
+}
+
+.navbar a {
+    font-size: 1.7rem; /* Consistent nav link size */
+    color: var(--text-color);
+    margin-left: 3.5rem; /* Slightly adjusted margin */
+    font-weight: 500; /* Slightly lighter weight for a cleaner look */
+    transition: color 0.3s ease, transform 0.3s ease; /* Added transform transition */
+    position: relative; /* For pseudo-element underline */
+}
+
+.navbar a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: -5px;
+    left: 0;
+    background-color: var(--main-color);
+    transition: width 0.3s ease;
+}
+
+.navbar a:hover::after,
+.navbar a.active::after {
+    width: 100%;
+}
+
+.navbar a:hover,
+.navbar a.active {
+    color: var(--main-color);
+    transform: translateY(-2px); /* Slight lift on hover */
+    /* Remove previous background hover to use underline effect */
+}
+
+#menu-icon {
+    font-size: 3.6rem;
+    color: var(--text-color); /* Ensure icon is visible */
+    display: none;
+    cursor: pointer;
+}
+
+.home{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+
+
+.home-content h3 {
+
+    font-size: 3.2rem;
+    font-weight: 700;
+}
+
+.home-content h3:nth-of-type(2) {
+    margin-bottom: 2.4rem; /* Increased bottom margin */
+
+}
+
+span {
+    color: var(--main-color);
+}
+
+.home-content h1 {
+    font-size: 5.8rem; /* Slightly increased h1 size */
+    font-weight: 700;
+    line-height: 1.2; /* Adjusted line height */
+}
+
+.home-img img{
+    width: 30vw;
+    animation: floatImage 4s ease-in-out infinite, fadeInZoom 1s ease-out forwards;
+    border-radius: 50%; /* Make it circular for a modern touch */
+    box-shadow: 0 0 25px var(--main-color), 0 0 50px var(--main-color); /* Glow effect */
+}
+
+@keyframes fadeInZoom {
+    from {
+        opacity: 0;
+        transform: scale(0.8);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.home-content p {
+    font-size: 1.8rem; /* Slightly increased font size */
+    margin-top: 1.5rem; /* Added top margin */
+}
+
+.social-media a {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 4.5rem; /* Slightly larger */
+    height: 4.5rem;
+    background: transparent;
+    border: .2rem solid var(--main-color) ;
+    border-radius: 50%;
+    font-size: 2.2rem;
+    color: var(--main-color);
+    margin: 3rem 1.5rem 3rem 0;
+    transition: all 0.4s ease; 
+    position: relative;
+    overflow: hidden; /* For fill effect */
+}
+
+.social-media a::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 100%;
+    background: var(--main-color);
+    transition: width 0.4s ease;
+    z-index: -1;
+}
+
+.social-media a:hover::before {
+    width: 100%;
+}
+
+.social-media a:hover {
+    color: var(--bg-color); /* Text color changes on hover */
+    box-shadow: 0 0 1.5rem var(--main-color);
+    transform: scale(1.1) translateY(-5px); /* More dynamic hover */
+}
+
+.btn {
+    display: inline-block;
+    padding: 1.2rem 2.8rem; 
+    border-radius: .8rem; /* Slightly less rounded for a modern feel */
+    background: var(--main-color);
+    color: var(--bg-color); 
+    font-size: 1.6rem; 
+    letter-spacing: .1rem; 
+    font-weight: 600; 
+    transition: all 0.4s ease; 
+    border: .2rem solid var(--main-color); 
+    box-shadow: 0 0 10px var(--main-color); /* Initial subtle glow */
+}
+
+.btn:hover{
+    background: transparent; 
+    color: var(--main-color); 
+    box-shadow: 0 0 20px var(--main-color), 0 0 30px var(--hover-glow-color); /* Enhanced glow */
+    transform: translateY(-3px);
+}
+
+.about {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+    background: var(--snd-bg-color); /* Changed background color */
+
+
+}
+
+.about-img img {
+    width: 100%; /* Make image width responsive within its container */
+    height: auto; /* Maintain aspect ratio */
+    display: block; /* Remove extra space below the image */
+    animation: floatImage 4s ease-in-out infinite;
+    border-radius: 15px; /* Softer corners */
+    object-fit: cover; /* Ensure image covers area without distortion if container has fixed height */
+
+}
+
+.heading {
+    text-align: center;
+    font-size: 4.5rem;
+    
+}
+.heading p {
+    font-size: 3.5rem;
+}
+
+.about-content h2 {
+    text-align: left;
+    line-height: 1.3; /* Adjusted line height */
+    color: var(--main-color); /* Changed heading color */
+    margin-bottom: 1rem; /* Added bottom margin */
+
+}
+
+.about-content h3 {
+    font-size: 2.6rem;
+    color: var(--text-color); /* Adjusted text color */
+    margin-bottom: 1.5rem; /* Added bottom margin */
+    font-weight: 400; /* Reduce font weight slightly */
+
+}
+
+.about-content p {
+    font-size: 1.8rem; /* Slightly increased font size */
+    margin-top: 1rem; /* Adjusted top margin */
+    color: var(--text-color);
+    line-height: 1.6; /* Added line height for readability */
+}
+
+.about-content p span {
+    font-weight: 700; /* Make the span text bold */
+    color: var(--gen-color); /* Give the span a highlight color */
+    margin-right: .5rem; /* Add a small space after the span */
+}
+
+.about {
+    margin-bottom: 6rem;
+}
+
+.features {
+    margin-bottom: 6rem;
+}
+
+.technologies {
+    margin-bottom: 6rem;
+}
+
+.services h2{
+    margin-bottom: 4rem; /* Increased bottom margin */
+    font-size: 4rem;
+}
+
+.IL {
+    margin-bottom: 10px;
+}
+
+.services-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 2rem;
+}
+
+.services-container .services-box {
+    flex: 1 1 30rem;
+    background: var(--snd-bg-color);
+    padding: 3rem 2rem 4rem;
+    border-radius: 1.5rem; /* Softer corners */
+    text-align: center;
+    border: .1rem solid transparent; /* Start with transparent border */
+    box-shadow: 0 5px 15px var(--shadow-color);
+    transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.services-container .services-box:hover {
+    border-color: var(--main-color);
+    transform: translateY(-10px) scale(1.03); /* More dynamic hover */
+    box-shadow: 0 10px 25px var(--shadow-color), 0 0 15px var(--hover-glow-color);
+}
+
+.services-box i {
+    font-size: 7rem;
+    color: var(--main-color);
+}
+
+.services-box h3 {
+    font-size: 2.6rem;
+}
+
+.services-box p {
+    font-size: 1.6rem; /* Adjusted font size */
+    margin: 1.5rem 0 2.5rem; /* Adjusted margins */
+}
+
+
+.kon{
+    text-align: center;
+    font-size: 21px;
+}
+.tol{
+    text-align: center;
+    font-size: 20px;
+
+}
+.portofolio {
+    background-color:var(--snd-bg-color);
+}
+
+.portofolio h2 {
+    margin-bottom: 4rem; /* Keep current margin */
+
+}
+
+.portofolio-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    align-items: center;
+    gap: 2.5rem;
+}
+
+.portofolio-container .portofolio-box{
+    position: relative;
+    border-radius: 10px;
+    box-shadow:0 0 1rem var(--bg-color) ;
+    overflow: hidden;
+    display: flex;
+    transition: all 0.5s ease; /* Add transition for box hover effects */
+}
+
+.portofolio-box:hover {
+    transform: translateY(-10px); /* Lift the box slightly on hover */
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5); /* Enhance shadow on hover */
+}
+
+.portofolio-box img {
+    width: 100%;
+    transition: transform 0.5s ease; /* Smoother image transition */
+    opacity: 1;
+    border-radius: 3px;
+    background-color: #8cc8e2;
+    object-fit: cover; /* Ensure image covers the box */
+
+}
+
+.portofolio-box:hover img{
+    transform: scale(1.05); /* Slightly less aggressive scale */
+
+}
+
+.portofolio-box .portofolio-layer {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7); /* Add a semi-transparent dark overlay */
+    color: var(--text-color); /* Ensure text is readable on the overlay */
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+    padding: 0 4rem;
+    transition: all 0.5s ease; /* Transition all relevant properties */
+    transform: translateY(100%);
+
+
+}
+
+.portofolio-box:hover .portofolio-layer{
+    transform: translateY(0);
+    background: rgba(0, 0, 0, 0.8); /* Slightly darker overlay on hover */
+}
+
+.portofolio-box:hover .portofolio-layer{
+    transform: translateY(0);
+}
+
+.portofolio-layer h4 {
+    font-size: 3rem;
+    
+}
+
+.portofolio-layer p {
+    font-size: 1.6rem;
+    margin: .5rem 0 1.5rem; /* Adjusted margins */
+    
+}
+
+
+.portofolio-layer a i {
+    font-size:  2rem;
+    color: var(--snd-bg-color);
+}
+
+.contact h2 {
+    margin-bottom: 4rem; /* Increased bottom margin */
+}
+
+.contact form {
+    max-width: 70rem;
+    margin: 2rem auto; /* Adjusted top margin */
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.contact form .input-box {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.contact form .input-box input,
+.contact form textarea {
+    width: 100%;
+    padding: 1.5rem;
+    font-size: 1.6rem;
+    color: var(--text-color);
+    background: var(--snd-bg-color);
+    border-radius: .8rem;
+    margin-bottom: 2rem; /* Increased margin */
+    border: .1rem solid var(--snd-bg-color); /* Subtle border */
+    transition: border-color 0.3s ease, box-shadow 0.3s ease; 
+}
+
+.contact form .input-box input:focus,
+.contact form textarea:focus {
+    border-color: var(--main-color); 
+    outline: none; 
+    box-shadow: 0 0 10px var(--hover-glow-color);
+}
+
+.contact form .input-box input {
+    width: 49%;
+}
+
+.contact form textarea {
+    resize: none;
+}
+
+.contact form .btn {
+    margin-top: 2rem;
+    cursor: pointer;
+    padding: 1.2rem 3rem; /* Adjust padding for better button size */
+    font-size: 1.8rem; /* Increase font size */
+    font-weight: 600; /* Make font bolder */
+    letter-spacing: .1rem; /* Adjust letter spacing */
+    transition: all 0.5s ease; /* Smooth transition for button hover */
+}
+
+.contact form .btn:hover {
+    background: var(--gen-color); /* Change background on hover */
+    color: var(--bg-color); /* Change text color on hover */
+    box-shadow: 0 0 1rem var(--gen-color); /* Add shadow on hover */
+}
+
+.footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap; 
+    padding: 3rem 9%; /* Increased padding */
+    background: var(--snd-bg-color); /* Use secondary background for footer */
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.footer-text p {
+    font-size: 1.6rem;
+    color: var(--text-color);
+}
+
+.footer-iconTop a {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem;
+    background: var(--main-color);
+    border-radius: .8rem;
+    transition: all 0.4s ease; 
+    box-shadow: 0 0 10px var(--main-color);
+}
+
+.footer-iconTop a:hover {
+    box-shadow: 0 0 20px var(--main-color), 0 0 30px var(--hover-glow-color);
+    transform: translateY(-5px);
+}
+
+.footer-iconTop a i {
+    font-size: 2.4rem;
+    color: var(--bg-color); /* Icon color against main color background */
+}
+
+/* Add styles for the Features section */
+.features {
+    background: var(--bg-color); 
+    padding: 10rem 9% 4rem; /* Consistent padding */
+}
+
+.features .heading {
+    margin-bottom: 5rem; /* Increased space below heading */
+}
+
+.features-list li {
+    background: var(--snd-bg-color); 
+    padding: 2rem; /* Increased padding */
+    margin-bottom: 1.5rem; 
+    border-radius: 1rem; 
+    font-size: 1.7rem; /* Slightly larger font */
+    color: var(--text-color); 
+    border-left: .5rem solid var(--main-color); 
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 5px 10px var(--shadow-color);
+}
+
+.features-list li:hover {
+    transform: translateX(10px) scale(1.02);
+    box-shadow: 0 8px 15px var(--shadow-color), 0 0 10px var(--hover-glow-color);
+}
+
+/* Adjust footer layout for smaller screens */
+@media (max-width: 768px) {
+    .footer {
+        flex-direction: column; /* Stack elements vertically */
+        text-align: center; /* Center text */
+    }
+    .footer-text {
+        margin-bottom: 1rem; /* Space between text and icon */
+    }
+
+    .features {
+        padding: 6rem 3% 3rem; /* Adjust padding for smaller screens */
+    }
+}
+
+/* Breakpoint */
+
+@media (max-width: 1200px) {
+    html {
+        font-size: 55%;
+    }
+}
+
+@media (max-width: 991px){
+    .header {
+        padding: 2rem 3%;
+    }
+
+    section {
+        padding: 10rem 3%;
+    }
+
+    .services {
+        padding: 7rem;
+    }
+
+    .portfolio {
+        padding-bottom: 7rem;
+    }
+
+    .contact {
+        min-height: auto;
+    }
+
+    .footer {
+        padding: 2rem 3%;
+    }
+}
+
+@media (max-width: 768px){
+    #menu-icon {
+        display: block;
+    }
+
+    .navbar {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        padding: 1rem 3%;
+        background: var(--bg-color);
+        border-top: .1rem solid rgba(0, 0, 0, .2);
+        box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .2);
+        display: none;
+    }
+
+    .navbar.active {
+        display: block;
+    }
+
+    .navbar a {
+        display: block;
+        font-size: 2rem;
+        margin: 3rem 0;
+    }
+
+    .home {
+        flex-direction: column;
+    }
+
+    .home-content h3 {
+        font-size: 2.6rem;
+    }
+
+    .home-content h1 {
+        font-size: 5rem;
+    }
+
+    .home-content {
+        order: 2;
+    }
+
+    .home-img img {
+        width: 70vw;
+        margin-top: 4rem;
+    }
+
+    .about {
+        flex-direction: column;
+    }
+
+    .about-img img {
+        width: 90vw;
+        margin-top: 4rem;
+    }
+
+    .services h2 {
+        margin-bottom: 3rem;
+    }
+
+    .portfolio h2 {
+        margin-bottom: 3rem;
+    }
+
+    .portfolio-container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 617px){
+    .portfolio-container {
+        grid-template-columns: 1fr;
+    }
+
+    .home-img img {
+        width: 80vw;
+        margin-top: 8rem;
+    }
+ 
+    .about-img img {
+        width: 100vw;
+        margin-top: 4rem;
+    }
+}
+
+@media (max-width: 450px){
+    html {
+        font-size: 50%;
+    }
+
+    .contact form .input-box input {
+        width: 100%;
+    }
+}
+
+/* Project Page Specific Styles (Shared across individual project pages) */
+.project-page-logo i {
+    margin-right: 8px;
+    font-size: 0.9em; /* Adjust icon size relative to logo text */
+}
+
+.project-detail-page {
+    padding-top: 12rem; /* Extra padding if header is fixed */
+    display: flex; /* Using flex for layout */
+    gap: 3rem; /* Gap between image and content */
+    align-items: flex-start; /* Align items to the top */
+}
+
+.project-image-container {
+    flex: 0 0 40%; /* Image container takes up 40% width */
+    max-width: 450px; /* Max width for the image */
+}
+
+.project-image-container img {
+    width: 100%;
+    border-radius: 10px;
+    box-shadow: 0 10px 30px rgba(0, 230, 230, 0.2); /* Main color shadow */
+}
+
+.project-description {
+    flex: 1; /* Description takes remaining space */
+}
+
+.project-title {
+    font-size: 3.8rem; /* Larger title */
+    color: var(--main-color);
+    margin-bottom: 0.5rem;
+}
+
+.project-author {
+    font-size: 2rem;
+    font-weight: 600;
+    margin-bottom: 2rem;
+    color: var(--text-color-light); /* Lighter text color if defined, or var(--text-color) */
+}
+
+.project-summary p span {
+    font-weight: 600;
+    color: var(--main-color);
+    display: block;
+    margin-bottom: 0.5rem;
+}
+
+.project-summary p {
+    font-size: 1.7rem; /* Slightly larger description text */
+    line-height: 1.8;
+    margin-bottom: 1rem;
+}
+
+.project-meta {
+    margin-top: 2.5rem;
+    margin-bottom: 2.5rem;
+}
+
+.meta-tag {
+    display: inline-block;
+    background-color: var(--snd-bg-color); /* Use secondary background */
+    color: var(--main-color);
+    padding: 0.6rem 1.2rem;
+    border-radius: 20px; /* Pill shape */
+    font-size: 1.4rem;
+    margin-right: 1rem;
+    margin-bottom: 1rem;
+    border: 1px solid var(--main-color);
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.meta-tag:hover {
+    background-color: var(--main-color);
+    color: var(--bg-color);
+}
+
+.project-links .btn {
+    margin-right: 1.5rem;
+}
+
+.project-links .btn-secondary {
+    background-color: transparent;
+    color: var(--main-color);
+    border: 2px solid var(--main-color);
+}
+
+.project-links .btn-secondary:hover {
+    background-color: var(--main-color);
+    color: var(--bg-color);
+}
+
+/* Responsive adjustments for project detail pages */
+@media (max-width: 768px) {
+    .project-detail-page {
+        flex-direction: column;
+        align-items: center;
+    }
+    .project-image-container {
+        max-width: 80%;
+        margin-bottom: 2rem;
+    }
+}
+
+.project-description h2 span {
+    font-size: 2.2rem; /* Smaller font for subtitle/translation */
+    color: var(--main-color);
+    display: block; /* Make it appear on a new line or adjust as needed */
+    margin-top: 0.5rem;
+}
+
+.project-meta {
+    margin: 2rem 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.project-meta .meta-tag {
+    background-color: var(--snd-bg-color);
+    color: var(--text-color);
+    padding: 0.8rem 1.5rem;
+    border-radius: 2rem; /* Pill shape */
+    font-size: 1.4rem;
+    display: inline-flex;
+    align-items: center;
+    border: 1px solid var(--main-color);
+    transition: all 0.3s ease;
+}
+
+.project-meta .meta-tag i {
+    margin-right: 0.8rem;
+    color: var(--main-color);
+}
+
+.project-meta .meta-tag:hover {
+    background-color: var(--main-color);
+    color: var(--bg-color);
+    transform: translateY(-3px);
+    box-shadow: 0 5px 10px rgba(0,0,0,0.2);
+}
+
+.project-meta .meta-tag:hover i {
+    color: var(--bg-color);
+}
+
+.project-description p {
+    font-size: 1.7rem; /* Slightly larger for readability */
+    line-height: 1.7;
+    margin-bottom: 2.5rem;
+}
+
+.project-links {
+    margin-top: 3rem;
+    display: flex;
+    gap: 1.5rem; /* Space between buttons */
+}
+
+.project-links .btn i {
+    margin-left: 0.8rem;
+}
+
+/* Secondary button style (example) */
+.btn.btn-secondary {
+    background: transparent;
+    color: var(--main-color);
+    border-color: var(--main-color);
+}
+
+.btn.btn-secondary:hover {
+    background: var(--main-color);
+    color: var(--bg-color);
+    box-shadow: 0 0 15px var(--main-color);
+}
+
+.project-features {
+    background-color: var(--snd-bg-color); /* Different background for this section */
+    padding-top: 8rem;
+    padding-bottom: 8rem;
+}
+
+.project-specific-features li {
+    font-size: 1.8rem; /* Larger font for features */
+    padding: 1.8rem;
+    border-left-width: 0.6rem;
+}
+
+.project-specific-features li i {
+    margin-right: 1rem;
+    color: var(--gen-color); /* Use a different accent color for feature icons */
+    font-size: 2rem;
+}
+
+.project-video {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+}
+
+.project-video video {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+}
